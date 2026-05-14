@@ -7,6 +7,9 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig(({ command }) => ({
+  // Добавляем эту строку. Она указывает Vite, что файлы лежат в подпапке репозитория.
+  base: "/ronins-gambit/", 
+  
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -24,8 +27,6 @@ export default defineConfig(({ command }) => ({
         routesDirectory: "routes",
         quoteStyle: "double",
         importRoutesUsingAbsolutePaths: false,
-        // TanStack's path-based `import()` splits break when the repo path contains `'`
-        // (e.g. Ronin's Gambit). Keep a single client chunk unless the folder is renamed.
         autoCodeSplitting: false,
         codeSplittingOptions: {
           defaultBehavior: [],
