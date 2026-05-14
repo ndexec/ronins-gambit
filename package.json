@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "postbuild": "if [ -f dist/client/index.html ]; then cp dist/client/index.html dist/index.html; elif [ -d .output/public ]; then cp -r .output/public/* dist/ 2>/dev/null || true; fi",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

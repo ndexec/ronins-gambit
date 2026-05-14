@@ -8,119 +8,119 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as TutorialRouteImport } from "./routes/tutorial"
-import { Route as ShopRouteImport } from "./routes/shop"
-import { Route as ProfileRouteImport } from "./routes/profile"
-import { Route as PlayRouteImport } from "./routes/play"
-import { Route as LeaderboardRouteImport } from "./routes/leaderboard"
-import { Route as DailyRouteImport } from "./routes/daily"
-import { Route as AuthRouteImport } from "./routes/auth"
-import { Route as IndexRouteImport } from "./routes/index"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as TutorialRouteImport } from './routes/tutorial'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PlayRouteImport } from './routes/play'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as DailyRouteImport } from './routes/daily'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as IndexRouteImport } from './routes/index'
 
 const TutorialRoute = TutorialRouteImport.update({
-  id: "/tutorial",
-  path: "/tutorial",
+  id: '/tutorial',
+  path: '/tutorial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
-  id: "/shop",
-  path: "/shop",
+  id: '/shop',
+  path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
-  id: "/profile",
-  path: "/profile",
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlayRoute = PlayRouteImport.update({
-  id: "/play",
-  path: "/play",
+  id: '/play',
+  path: '/play',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeaderboardRoute = LeaderboardRouteImport.update({
-  id: "/leaderboard",
-  path: "/leaderboard",
+  id: '/leaderboard',
+  path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DailyRoute = DailyRouteImport.update({
-  id: "/daily",
-  path: "/daily",
+  id: '/daily',
+  path: '/daily',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
-  id: "/auth",
-  path: "/auth",
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
-  "/auth": typeof AuthRoute
-  "/daily": typeof DailyRoute
-  "/leaderboard": typeof LeaderboardRoute
-  "/play": typeof PlayRoute
-  "/profile": typeof ProfileRoute
-  "/shop": typeof ShopRoute
-  "/tutorial": typeof TutorialRoute
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/daily': typeof DailyRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
+  '/shop': typeof ShopRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
-  "/auth": typeof AuthRoute
-  "/daily": typeof DailyRoute
-  "/leaderboard": typeof LeaderboardRoute
-  "/play": typeof PlayRoute
-  "/profile": typeof ProfileRoute
-  "/shop": typeof ShopRoute
-  "/tutorial": typeof TutorialRoute
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/daily': typeof DailyRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
+  '/shop': typeof ShopRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
-  "/auth": typeof AuthRoute
-  "/daily": typeof DailyRoute
-  "/leaderboard": typeof LeaderboardRoute
-  "/play": typeof PlayRoute
-  "/profile": typeof ProfileRoute
-  "/shop": typeof ShopRoute
-  "/tutorial": typeof TutorialRoute
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/daily': typeof DailyRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
+  '/shop': typeof ShopRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | "/"
-    | "/auth"
-    | "/daily"
-    | "/leaderboard"
-    | "/play"
-    | "/profile"
-    | "/shop"
-    | "/tutorial"
+    | '/'
+    | '/auth'
+    | '/daily'
+    | '/leaderboard'
+    | '/play'
+    | '/profile'
+    | '/shop'
+    | '/tutorial'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | "/"
-    | "/auth"
-    | "/daily"
-    | "/leaderboard"
-    | "/play"
-    | "/profile"
-    | "/shop"
-    | "/tutorial"
+    | '/'
+    | '/auth'
+    | '/daily'
+    | '/leaderboard'
+    | '/play'
+    | '/profile'
+    | '/shop'
+    | '/tutorial'
   id:
-    | "__root__"
-    | "/"
-    | "/auth"
-    | "/daily"
-    | "/leaderboard"
-    | "/play"
-    | "/profile"
-    | "/shop"
-    | "/tutorial"
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/daily'
+    | '/leaderboard'
+    | '/play'
+    | '/profile'
+    | '/shop'
+    | '/tutorial'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -134,61 +134,61 @@ export interface RootRouteChildren {
   TutorialRoute: typeof TutorialRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/tutorial": {
-      id: "/tutorial"
-      path: "/tutorial"
-      fullPath: "/tutorial"
+    '/tutorial': {
+      id: '/tutorial'
+      path: '/tutorial'
+      fullPath: '/tutorial'
       preLoaderRoute: typeof TutorialRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/shop": {
-      id: "/shop"
-      path: "/shop"
-      fullPath: "/shop"
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/profile": {
-      id: "/profile"
-      path: "/profile"
-      fullPath: "/profile"
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/play": {
-      id: "/play"
-      path: "/play"
-      fullPath: "/play"
+    '/play': {
+      id: '/play'
+      path: '/play'
+      fullPath: '/play'
       preLoaderRoute: typeof PlayRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/leaderboard": {
-      id: "/leaderboard"
-      path: "/leaderboard"
-      fullPath: "/leaderboard"
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
       preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/daily": {
-      id: "/daily"
-      path: "/daily"
-      fullPath: "/daily"
+    '/daily': {
+      id: '/daily'
+      path: '/daily'
+      fullPath: '/daily'
       preLoaderRoute: typeof DailyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/auth": {
-      id: "/auth"
-      path: "/auth"
-      fullPath: "/auth"
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -209,9 +209,9 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { startInstance } from "./start.ts"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
