@@ -23,7 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
+        # Вот здесь мы прокидываем секреты в процесс сборки
         run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
