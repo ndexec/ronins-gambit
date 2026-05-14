@@ -130,7 +130,7 @@ function Index() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {PROVINCES.map((p) => {
-            const coverUrl = `/covers/${encodeURIComponent(p.cover)}`;
+            const coverUrl = `${import.meta.env.BASE_URL}covers/${encodeURIComponent(p.cover)}`;
             return (
               <div key={p.id} className="group relative min-h-48 overflow-hidden rounded-lg border border-border bg-surface/40 p-4 transition hover:border-primary/40">
                 <div
@@ -138,7 +138,7 @@ function Index() {
                   className="absolute inset-0 bg-cover bg-center opacity-35 transition duration-300 group-hover:scale-105 group-hover:opacity-45"
                   style={{ backgroundImage: `url("${coverUrl}")` }}
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/70 to-background/95" />
+                <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-background/25 via-background/70 to-background/95" />
                 <div className="relative z-10 flex h-full min-h-40 flex-col">
                   <div className="font-zen text-3xl text-primary mb-2 drop-shadow">{p.kanji}</div>
                   <div className="text-sm font-serif drop-shadow">{p.name}</div>

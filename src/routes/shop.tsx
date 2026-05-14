@@ -41,7 +41,7 @@ function ShopPage() {
   return (
     <div className="max-w-5xl mx-auto px-5 py-10">
       {/* PRO HERO */}
-      <div className="rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/10 via-surface to-accent/10 p-8 mb-10 text-center relative overflow-hidden">
+      <div className="rounded-2xl border border-primary/40 bg-linear-to-br from-primary/10 via-surface to-accent/10 p-8 mb-10 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 font-zen text-[200px] leading-none text-primary select-none pointer-events-none">武</div>
         <div className="relative">
           <div className="text-[10px] tracking-[0.4em] uppercase text-primary/70 font-serif">RONIN PRO</div>
@@ -82,7 +82,7 @@ function ShopPage() {
       <h2 className="font-serif text-2xl mb-4 flex items-center gap-2"><Sparkles className="h-5 w-5 text-primary" /> Скины клинков</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
         {SKINS.map((s) => {
-          const imageUrl = `/blade_skins/${encodeURIComponent(s.image)}`;
+          const imageUrl = `${import.meta.env.BASE_URL}blade_skins/${encodeURIComponent(s.image)}`;
           return (
             <div key={s.id} className="group rounded-lg border border-border bg-surface/60 p-4 hover:border-primary/40 transition relative overflow-hidden">
               {s.pro && (
@@ -94,7 +94,7 @@ function ShopPage() {
                   className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm scale-110"
                   style={{ backgroundImage: `url("${imageUrl}")` }}
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/70" />
+                <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-background/10 via-background/20 to-background/70" />
                 <img
                   src={imageUrl}
                   alt={s.name}
@@ -123,7 +123,7 @@ function ShopPage() {
       <h2 className="font-serif text-2xl mb-4">Эксклюзивные провинции</h2>
       <div className="grid sm:grid-cols-2 gap-3">
         {EXCLUSIVE_PROVINCES.map((p) => {
-          const coverUrl = `/covers/${encodeURIComponent(p.cover)}`;
+          const coverUrl = `${import.meta.env.BASE_URL}covers/${encodeURIComponent(p.cover)}`;
           return (
             <div key={p.id} className="group relative min-h-28 overflow-hidden rounded-lg border border-border bg-surface/60 p-5 flex items-center gap-4 transition hover:border-accent/50">
               <div
@@ -131,7 +131,7 @@ function ShopPage() {
                 className="absolute inset-0 bg-cover bg-center opacity-35 transition duration-300 group-hover:scale-105 group-hover:opacity-45"
                 style={{ backgroundImage: `url("${coverUrl}")` }}
               />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/35" />
+              <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-background/95 via-background/75 to-background/35" />
               <div className="relative z-10 font-zen text-4xl text-accent drop-shadow">{p.kanji}</div>
               <div className="relative z-10 flex-1 min-w-0">
                 <div className="font-serif truncate drop-shadow">{p.name}</div>

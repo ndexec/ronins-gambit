@@ -105,7 +105,7 @@ function PlayPage() {
   const savedRef = useRef(false);
 
   const provinceData = useMemo(() => PROVINCES.find((p) => p.id === province) ?? PROVINCES[0], [province]);
-  const provinceCoverUrl = `/covers/${encodeURIComponent(provinceData.cover)}`;
+  const provinceCoverUrl = `${import.meta.env.BASE_URL}covers/${encodeURIComponent(provinceData.cover)}`;
   const isPro = isProLocal();
   const [seedUsed, setSeedUsed] = useState<string | undefined>(search.seed);
   const [lastFinal, setLastFinal] = useState<{ won: boolean; score: number; time: number } | null>(null);
@@ -511,7 +511,7 @@ function PlayPage() {
             {PROVINCES.map((p) => {
               const locked = myWins < p.unlockWins;
               const isActive = province === p.id;
-              const coverUrl = `/covers/${encodeURIComponent(p.cover)}`;
+              const coverUrl = `${import.meta.env.BASE_URL}covers/${encodeURIComponent(p.cover)}`;
               return (
                 <button
                   key={p.id}
@@ -535,7 +535,7 @@ function PlayPage() {
                     }`}
                     style={{ backgroundImage: `url("${coverUrl}")` }}
                   />
-                  <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/45" />
+                  <span aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-background/95 via-background/75 to-background/45" />
                   <span className="relative z-10 font-zen text-base drop-shadow">{p.kanji}</span>
                   <span className="relative z-10 flex-1 truncate drop-shadow">{p.name}</span>
                   {locked && <Lock className="relative z-10 h-3 w-3" />}
@@ -650,7 +650,7 @@ function PlayPage() {
                 </div>
                 <div className="h-2 rounded-full border border-destructive/20 bg-background/70 overflow-hidden sm:h-3">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-destructive to-primary transition-all"
+                    className="h-full rounded-full bg-linear-to-r from-destructive to-primary transition-all"
                     style={{ width: `${playerPct}%` }}
                   />
                 </div>

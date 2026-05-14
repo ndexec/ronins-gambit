@@ -92,11 +92,11 @@ export function enemyPortraitCandidates(enemy: EnemyType, provinceId: number): s
   if (enemy.avatarUrl) ordered.push(enemy.avatarUrl);
   if (folder) {
     for (const ext of PORTRAIT_EXTS) {
-      ordered.push(`/avatars/enemies/${folder}/${enemy.id}${ext}`);
+      ordered.push(`${import.meta.env.BASE_URL}avatars/enemies/${folder}/${enemy.id}${ext}`);
     }
   }
   for (const ext of PORTRAIT_EXTS) {
-    ordered.push(`/avatars/enemies/${enemy.id}${ext}`);
+    ordered.push(`${import.meta.env.BASE_URL}avatars/enemies/${enemy.id}${ext}`);
   }
   return [...new Set(ordered)];
 }
