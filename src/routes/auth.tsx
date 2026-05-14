@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { ensureUserProfile } from "@/lib/profile-sync";
 
 
@@ -27,7 +27,7 @@ function AuthPage() {
           email,
           password,
           options: {
-            emailRedirectTo: window.location.origin,
+            emailRedirectTo: window.location.origin + import.meta.env.BASE_URL,
             data: { display_name: name || email.split("@")[0] },
           },
         });
@@ -53,7 +53,13 @@ function AuthPage() {
   }
 
   async function googleLogin() {
-    toast("Google-вход появится в полной версии. Используй email.");
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin + import.meta.env.BASE_URL,
+      },
+    });
+    if (error) toast.error(error.message);
   }
 
   return (

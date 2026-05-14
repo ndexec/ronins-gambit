@@ -1,7 +1,8 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Sun, Moon, LogIn, LogOut, User as UserIcon } from "lucide-react";
-import { useAuth, signOut } from "@/hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 import { useThemeMode } from "@/hooks/useThemeMode";
+import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -16,6 +17,20 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
   const { mode, toggle } = useThemeMode();
   const loc = useLocation();
+  const avatarUrl = user?.user_metadata?.avatar_url as string | undefined;
+
+  async function handleLogin() {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin + import.meta.env.BASE_URL,
+      },
+    });
+  }
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -36,7 +51,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                     "px-3 py-1.5 text-xs sm:text-sm rounded-md font-serif tracking-wider transition-colors whitespace-nowrap",
                     active
                       ? "text-primary bg-surface-2 border border-border"
-                      : "text-muted-foreground hover:text-foreground hover:bg-surface"
+                      : "text-muted-foreground hover:text-foreground hover:bg-surface",
                   )}
                 >
                   {n.label}
@@ -58,23 +73,30 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                   to="/profile"
                   className="h-8 px-3 grid place-items-center rounded-md border border-border hover:border-primary text-xs gap-2 hidden sm:flex"
                 >
-                  <UserIcon className="h-3.5 w-3.5" /> Профиль
+                  {avatarUrl ? (
+                    <img src={avatarUrl} alt="" className="h-5 w-5 rounded-full object-cover" />
+                  ) : (
+                    <UserIcon className="h-3.5 w-3.5" />
+                  )}
+                  Профиль
                 </Link>
                 <button
-                  onClick={() => signOut()}
+                  onClick={handleLogout}
                   className="h-8 w-8 grid place-items-center rounded-md border border-border hover:border-destructive text-muted-foreground hover:text-destructive transition-colors"
                   aria-label="Выйти"
+                  title="Выйти"
                 >
                   <LogOut className="h-4 w-4" />
                 </button>
               </>
             ) : (
-              <Link
-                to="/auth"
+              <button
+                type="button"
+                onClick={handleLogin}
                 className="h-8 px-3 flex items-center gap-2 rounded-md bg-primary text-primary-foreground text-xs font-medium hover:opacity-90"
               >
                 <LogIn className="h-3.5 w-3.5" /> Войти
-              </Link>
+              </button>
             )}
           </div>
         </div>
