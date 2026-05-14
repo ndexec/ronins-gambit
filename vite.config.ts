@@ -7,7 +7,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig(({ command }) => ({
-  // Добавляем эту строку. Она указывает Vite, что файлы лежат в подпапке репозитория.
+  // Указывает Vite правильный путь для статических ассетов
   base: "/ronins-gambit/", 
   
   resolve: {
@@ -25,6 +25,8 @@ export default defineConfig(({ command }) => ({
       router: {
         entry: "router.tsx",
         routesDirectory: "routes",
+        // ВАЖНО: Добавляем basepath для корректной работы роутинга на GitHub Pages
+        basepath: "/ronins-gambit/", 
         quoteStyle: "double",
         importRoutesUsingAbsolutePaths: false,
         autoCodeSplitting: false,
