@@ -1,0 +1,216 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * RONIN — Zen Mahjong design system
+ * Dark samurai/zen palette with gold + jade accents.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-jade: var(--jade);
+  --color-jade-2: var(--jade-2);
+  --color-crimson: var(--crimson);
+
+  --color-tile-bg: var(--tile-bg);
+  --color-tile-border: var(--tile-border);
+  --color-tile-shadow: var(--tile-shadow);
+  --color-tile-selected: var(--tile-selected);
+  --color-tile-hint: var(--tile-hint);
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --font-zen: 'Noto Serif SC', serif;
+
+  --shadow-tile: 3px 3px 0 var(--tile-shadow), 2px 2px 0 oklch(0 0 0 / 0.3), 0 4px 12px oklch(0 0 0 / 0.4);
+  --shadow-tile-selected: 3px 3px 0 oklch(0.32 0.05 70), 0 0 0 2px var(--gold), 0 4px 20px oklch(0.78 0.13 80 / 0.45);
+  --shadow-tile-hint: 3px 3px 0 oklch(0.30 0.05 150), 0 0 0 2px var(--jade), 0 4px 20px oklch(0.65 0.13 155 / 0.45);
+  --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-2) 100%);
+  --gradient-jade: linear-gradient(135deg, var(--jade) 0%, var(--jade-2) 100%);
+  --gradient-zen: radial-gradient(ellipse 80% 50% at 20% 20%, oklch(0.78 0.13 80 / 0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 40% at 80% 80%, oklch(0.65 0.13 155 / 0.05) 0%, transparent 60%);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.013 60);
+  --foreground: oklch(0.91 0.027 75);
+  --surface: oklch(0.21 0.014 60);
+  --surface-2: oklch(0.26 0.018 60);
+  --card: oklch(0.21 0.014 60);
+  --card-foreground: oklch(0.91 0.027 75);
+  --popover: oklch(0.21 0.014 60);
+  --popover-foreground: oklch(0.91 0.027 75);
+  --primary: oklch(0.78 0.13 80);
+  --primary-foreground: oklch(0.16 0.013 60);
+  --secondary: oklch(0.26 0.018 60);
+  --secondary-foreground: oklch(0.91 0.027 75);
+  --muted: oklch(0.26 0.018 60);
+  --muted-foreground: oklch(0.62 0.034 70);
+  --accent: oklch(0.65 0.13 155);
+  --accent-foreground: oklch(0.16 0.013 60);
+  --destructive: oklch(0.62 0.20 25);
+  --destructive-foreground: oklch(0.97 0.01 75);
+  --border: oklch(0.78 0.13 80 / 0.15);
+  --input: oklch(0.78 0.13 80 / 0.18);
+  --ring: oklch(0.78 0.13 80 / 0.5);
+
+  --gold: oklch(0.78 0.13 80);
+  --gold-2: oklch(0.86 0.13 85);
+  --jade: oklch(0.65 0.13 155);
+  --jade-2: oklch(0.78 0.13 155);
+  --crimson: oklch(0.62 0.20 25);
+
+  --tile-bg: oklch(0.94 0.04 85);
+  --tile-border: oklch(0.78 0.04 80);
+  --tile-shadow: oklch(0.32 0.05 60);
+  --tile-selected: oklch(0.97 0.03 85);
+  --tile-hint: oklch(0.93 0.06 155);
+}
+
+.light {
+  --background: oklch(0.94 0.025 80);
+  --foreground: oklch(0.22 0.02 60);
+  --surface: oklch(0.90 0.025 75);
+  --surface-2: oklch(0.86 0.025 75);
+  --card: oklch(0.90 0.025 75);
+  --card-foreground: oklch(0.22 0.02 60);
+  --popover: oklch(0.94 0.025 80);
+  --popover-foreground: oklch(0.22 0.02 60);
+  --secondary: oklch(0.86 0.025 75);
+  --secondary-foreground: oklch(0.22 0.02 60);
+  --muted: oklch(0.86 0.025 75);
+  --muted-foreground: oklch(0.45 0.025 60);
+  --border: oklch(0.55 0.06 80 / 0.25);
+  --input: oklch(0.55 0.06 80 / 0.30);
+
+  --tile-bg: oklch(0.99 0.015 85);
+  --tile-shadow: oklch(0.72 0.04 70);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); }
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    background-image: var(--gradient-zen);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); letter-spacing: 0.02em; }
+  .font-zen { font-family: var(--font-zen); }
+  .font-serif { font-family: var(--font-serif); }
+}
+
+/* TILE STYLES */
+.mj-tile {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, opacity 0.3s ease;
+}
+.mj-tile-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+  background: var(--tile-bg);
+  border: 1.5px solid var(--tile-border);
+  box-shadow: var(--shadow-tile);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  overflow: hidden;
+}
+.mj-tile-char {
+  font-family: var(--font-zen);
+  font-size: clamp(16px, 4vw, 26px);
+  line-height: 1;
+  color: oklch(0.22 0.04 50);
+}
+.mj-tile-sub {
+  font-size: 9px;
+  color: oklch(0.50 0.05 60);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+.mj-tile.blocked { cursor: not-allowed; }
+.mj-tile.blocked .mj-tile-inner {
+  background: oklch(0.84 0.02 75);
+  border-color: oklch(0.72 0.03 75);
+  filter: brightness(0.85);
+}
+.mj-tile.free:hover .mj-tile-inner {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--tile-shadow), 0 6px 16px oklch(0 0 0 / 0.5);
+}
+.mj-tile.selected .mj-tile-inner {
+  background: var(--tile-selected);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-tile-selected);
+  transform: translateY(-2px);
+}
+.mj-tile.hint .mj-tile-inner {
+  background: var(--tile-hint);
+  border-color: var(--jade);
+  box-shadow: var(--shadow-tile-hint);
+  animation: hintPulse 0.8s ease infinite alternate;
+}
+.mj-tile.matched { animation: matchAnim 0.45s ease forwards; pointer-events: none; }
+.mj-tile[data-suit="dragon"] .mj-tile-char,
+.mj-tile[data-suit="wind"] .mj-tile-char { color: oklch(0.45 0.18 25); }
+.mj-tile[data-suit="bamboo"] .mj-tile-char { color: oklch(0.40 0.13 145); }
+.mj-tile[data-suit="circle"] .mj-tile-char { color: oklch(0.35 0.13 250); }
+
+@keyframes hintPulse {
+  from { box-shadow: 3px 3px 0 oklch(0.30 0.05 150), 0 0 0 2px var(--jade), 0 4px 20px oklch(0.65 0.13 155 / 0.25); }
+  to   { box-shadow: 3px 3px 0 oklch(0.30 0.05 150), 0 0 0 2px var(--jade), 0 4px 30px oklch(0.65 0.13 155 / 0.65); }
+}
+@keyframes matchAnim {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18) rotate(4deg); opacity: 0.8; }
+  100% { transform: scale(0) rotate(8deg); opacity: 0; }
+}
+@keyframes ronin-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ronin-fade { animation: ronin-fade-in 0.5s ease both; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: oklch(0.78 0.13 80 / 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.78 0.13 80 / 0.4); }
